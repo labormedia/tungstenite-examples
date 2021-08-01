@@ -3,11 +3,23 @@ name = "tungstenite-examples"
 version = "0.1.0"
 edition = "2018"
 
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bin]]
+name = "simple"
+path = "src/simple.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tungstenite = "*"
+tungstenite = { version= "*", features= ["rustls-tls"]}
+tokio = { version= "*", features = ["full"] }
+futures-channel = "*"
+futures-util = "*"
+tokio-tungstenite = { version= "*", features= ["rustls-tls"] }
 url = "*"
+env_logger = "*"
 
 [dev-dependencies]
-env_logger = "*"
