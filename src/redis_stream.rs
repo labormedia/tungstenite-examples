@@ -1,6 +1,6 @@
 use std::error::Error;
 use redis::{
-    streams::{StreamRangeReply, StreamId}
+    streams::{StreamRangeReply}
     ,AsyncCommands
 };
 
@@ -23,8 +23,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .unwrap()
         .ids
         .iter()
-        .map( |x| String::from(x.clone().id) + " " )
-        .collect::<String>()
+        .map( |x| String::from(x.clone().id) )
+        .collect::<Vec<String>>()
     );
     // assert_eq!(result, Ok(("foo".to_string(), b"bar".to_vec())));
 
