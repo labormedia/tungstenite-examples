@@ -11,6 +11,22 @@ path = "src/main.rs"
 name = "simple"
 path = "src/simple.rs"
 
+[[bin]]
+name = "simple_redis"
+path = "src/simple_redis.rs"
+
+[[bin]]
+name = "redis_pubsub"
+path = "src/redis_pubsub.rs"
+
+[[bin]]
+name =  "redis_tokio"
+path = "src/redis_tokio.rs"
+
+[[bin]]
+name = "redis_stream"
+path = "src/redis_stream.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
@@ -21,5 +37,7 @@ futures-util = "*"
 tokio-tungstenite = { version= "*", features= ["rustls-tls"] }
 url = "*"
 env_logger = "*"
+redis = { version = "0.19.0", features = ["tokio-comp", "tokio-native-tls-comp"] }
+futures = "*"
 
 [dev-dependencies]
